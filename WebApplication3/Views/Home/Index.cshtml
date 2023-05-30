@@ -1,0 +1,67 @@
+﻿@model IEnumerable<WebApplication3.Entities.Product>
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<head>
+	<link rel="stylesheet" href="~/css/homeindex.css">
+</head>
+
+<body style="border:1px solid black;">
+
+	<div style="position:absolute; display:flex; right:0px; top:5px;">
+		<form>
+			<button asp-controller="Home" asp-action="Add" method="get" class="btn btn-success m-2">Add</button>
+
+		</form>
+	</div>
+
+	<div class="container mydiv" style="width:100%!important;">
+		<div class="row">
+
+			@foreach (var item in Model)
+			{
+
+				<div class="col-md-4 mt-3">
+					<!-- bbb_deals -->
+					<div class="bbb_deals">
+						<div class="ribbon ribbon-top-right"><span><small class="cross">% </small>@item.Discount</span></div>
+						<div class="bbb_deals_title">@item.OfferType</div>
+						<div class="bbb_deals_slider_container">
+							<div class=" bbb_deals_item">
+								<div class="bbb_deals_image"><img src="@item.ImagePath" alt=""></div>
+								<div class="bbb_deals_content">
+									<div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+										<div class="bbb_deals_item_category"><a href="#">@item.Category</a></div>
+										<div class="bbb_deals_item_price_a ml-auto"><strike>@item.OldPrice$</strike></div>
+									</div>
+									<div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+										<div class="bbb_deals_item_name">@item.Name</div>
+										<div class="bbb_deals_item_price ml-auto">$@item.Price</div>
+									</div>
+									<div class="available">
+										<div class="available_line d-flex flex-row justify-content-start">
+											<div class="available_title">Available: <span>6</span></div>
+											<div class="sold_stars ml-auto"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+										</div>
+										<div class="available_bar"><span style="width:17%"></span></div>
+										<form>
+											<div style="display:flex;">
+												<button asp-controller="Home" asp-action="Update" method="get" class="btn btn-warning m-2" asp-route-id="@item.Id">Update</button>
+												<button asp-controller="Home" asp-action="Delete" formmethod="post" asp-route-id="@item.Id" class="btn btn-danger m-2">Delete</button>
+											</div>
+										</form>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+
+		</div>
+	</div>
+</body>
+

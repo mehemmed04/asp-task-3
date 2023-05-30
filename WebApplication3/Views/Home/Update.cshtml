@@ -1,0 +1,62 @@
+﻿@model WebApplication3.Entities.Product
+
+
+<form>
+	<div class="form-group">
+		<label>Product Id: </label>
+		<label style="font-weight:bold;">@Model.Id</label>
+	</div>
+
+	<div class="form-group">
+		<label>Product name</label>
+		<input type="text" class="form-control" asp-for="Name">
+		<span asp-validation-for="Name" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label>Description</label>
+		<input type="text" class="form-control" asp-for="Description">
+		<span asp-validation-for="Description" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label>Offer Type</label>
+		<input type="text" class="form-control" asp-for="OfferType">
+		<span asp-validation-for="OfferType" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label>Category</label>
+		<input type="text" class="form-control" asp-for="Category">
+		<span asp-validation-for="Category" class="text-danger"></span>
+	</div>
+
+	<div class="form-group">
+		<label>Old Price</label>
+		<input type="number" class="form-control" asp-for="OldPrice">
+		<span asp-validation-for="OldPrice" class="text-danger"></span>
+	</div>
+
+
+	<div class="form-group">
+		<label>Current Price</label>
+		<input type="number" class="form-control" asp-for="Price">
+		<span asp-validation-for="Price" class="text-danger"></span>
+	</div>
+
+
+	<div class="form-group">
+		<label>Discount</label>
+		<input type="number" class="form-control" asp-for="Discount">
+		<span asp-validation-for="Discount" class="text-danger"></span>
+	</div>
+
+
+	<div class="form-group">
+		<label>Image Path</label>
+		<input type="text" class="form-control" asp-for="ImagePath">
+		<span asp-validation-for="ImagePath" class="text-danger"></span>
+	</div>
+
+	<button asp-controller="Home" asp-action="Update" formmethod="post" class="btn btn-primary">Submit</button>
+</form>
